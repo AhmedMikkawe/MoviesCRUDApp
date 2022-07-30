@@ -12,7 +12,7 @@ using MoviesCRUDApp.Models;
 namespace MoviesCRUDApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220729091012_Initial")]
+    [Migration("20220730075623_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,7 +27,10 @@ namespace MoviesCRUDApp.Migrations
             modelBuilder.Entity("MoviesCRUDApp.Models.Genre", b =>
                 {
                     b.Property<byte>("GenreId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("tinyint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<byte>("GenreId"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()

@@ -9,7 +9,7 @@ namespace MoviesCRUDApp.Models
 
         }
 
-        DbSet<Genre> Genres { get; set; }
-        DbSet<Movie> Movies { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+        public DbSet<Movie> Movies { get; set; }
     }
 }

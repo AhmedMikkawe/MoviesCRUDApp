@@ -16,3 +16,24 @@ html {
 body {
   margin-bottom: 60px;
 }
+/*Custom Styles*/
+/*Chrome , Opera , Edge , Safari*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/*Firefox*/
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+textarea {
+    resize: none;
+}
+.text-justify {
+    text-align: justify;
+}
+.poster{
+    min-height:200px;
+}

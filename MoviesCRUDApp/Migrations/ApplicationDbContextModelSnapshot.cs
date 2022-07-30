@@ -25,7 +25,10 @@ namespace MoviesCRUDApp.Migrations
             modelBuilder.Entity("MoviesCRUDApp.Models.Genre", b =>
                 {
                     b.Property<byte>("GenreId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("tinyint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<byte>("GenreId"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
