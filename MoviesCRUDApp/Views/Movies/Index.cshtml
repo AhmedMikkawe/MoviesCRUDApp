@@ -34,14 +34,27 @@
                                     <p class="card-text text-justify">@(item.StoryLine.Length > 500 ? $"{item.StoryLine.Substring(0,500)}..." : item.StoryLine)</p>
 
                               </div>
-                              <div>
+                              <div class="d-flex justify-content-between">
                                 <p class="card-text">
                                     <i class="bi bi-star-fill text-warning"></i>
                                     <small class="text-muted">
                                     @item.Rate
                                     </small>
                                  </p>
-
+                                 <div>
+                                       <a asp-action="Details" asp-route-id="@item.MovieId" class="btn btn-outline-secondary">
+                                         <i class="bi bi-camera"></i>
+                                         Details
+                                     </a>
+                                     <a asp-action="Edit" asp-route-id="@item.MovieId" class="btn btn-outline-primary">
+                                         <i class="bi bi-pencil"></i>
+                                         Edit
+                                     </a>
+                                     <a asp-action="Delete" asp-route-id="@item.MovieId" class="btn btn-danger">
+                                         <i class="bi bi-trash"></i>
+                                         Delete
+                                     </a>
+                                 </div>
                               </div>
                           </div>
                         </div>
