@@ -5,6 +5,7 @@ namespace MoviesCRUDApp.ViewModels
 {
     public class MovieFormViewModel
     {
+        public int MovieId { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Title is Required"), StringLength(250, ErrorMessage = "Title Can't be less than 3 characters and can't be more than 250 characters",MinimumLength = 3)]
         public string Title { get; set; }
         [Range(1,10,ErrorMessage ="Rate can't be less than 1 and more than 10")]
@@ -14,7 +15,7 @@ namespace MoviesCRUDApp.ViewModels
         public int Year { get; set; }
         [Display(Name = "Select Poster...")]
 
-        public IFormFile Poster { get; set; }
+        public byte[]? Poster { get; set; }
         [Display(Name ="Genre")]
         public byte GenreId { get; set; }
         public IEnumerable<Genre>? Genres { get; set; }
