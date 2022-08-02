@@ -50,7 +50,7 @@
                                          <i class="bi bi-pencil"></i>
                                          Edit
                                      </a>
-                                     <a asp-action="Delete" asp-route-id="@item.MovieId" class="btn btn-danger">
+                                     <a href="javascript:;" class="btn btn-danger js-delete" data-id="@item.MovieId">
                                          <i class="bi bi-trash"></i>
                                          Delete
                                      </a>
@@ -65,3 +65,43 @@
         </div>
     }
 </div>
+
+
+@section Scripts{
+    <script>
+$(document).ready(function() { 
+    $(".js-delete").on("click", function() { 
+        var btn = $(this);
+        bootbox.confirm({
+            message: "Are you sure to delete",
+            buttons: {
+                confirm: {
+                    label: 'Yes',
+                    className: 'btn-danger'
+                },
+                cancel: {
+                    label: 'No',
+                    className: 'btn-outline-secondary'
+                }
+            },
+            callback: function (result) {
+                if(result){
+                    $.ajax({
+                        url:"/movies/delete/" + btn.data("id"),
+                        success: function() {
+                            btn.parents(".col-12").fadeOut();
+                            toastr.success("movie deleted");
+                        },
+                        error: function() {
+                            toastr.error("something went wrong");
+                        }
+                    });
+                }
+            }
+        });
+        
+    });
+});
+
+    </script>
+}
